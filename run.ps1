@@ -34,6 +34,7 @@ Write-Host "Cleared Event Logs" -ForegroundColor Green
 Write-Host ""
 Write-Host "Done! All traces removed." -ForegroundColor Magenta
 
-# เปิดไฟล์ ConsoleHost_history.txt ใน Notepad
+# สคริปต์ที่ 2 ลบประวัติหลัง PowerShell ปิด
 $histPath = "$env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt"
-Start-Process notepad $histPath
+$cleanScript = "Start-Sleep -Seconds 2; Clear-Content '$histPath' -Force"
+Start-Process powershell -ArgumentList "-WindowStyle Hidden -Command $cleanScript"
