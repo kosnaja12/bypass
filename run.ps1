@@ -11,6 +11,7 @@ Start-Sleep -Seconds 2
 
 Clear-History
 Set-Content (Get-PSReadlineOption).HistorySavePath -Value ""
+Remove-Item "$env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt" -Force -ErrorAction SilentlyContinue
 Write-Host "Cleared PowerShell history" -ForegroundColor Green
 
 Remove-Item "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU" -Recurse -Force -ErrorAction SilentlyContinue
