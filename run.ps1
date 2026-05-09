@@ -33,3 +33,7 @@ Write-Host "Cleared Event Logs" -ForegroundColor Green
 
 Write-Host ""
 Write-Host "Done! All traces removed." -ForegroundColor Magenta
+
+# เปิดไฟล์ ConsoleHost_history.txt ใน Notepad
+$histPath = "$env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt"
+Start-Process notepad $histPath
